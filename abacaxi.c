@@ -14,8 +14,8 @@ void display(){
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-50.0, 50.0, -50.0, 50.0, 0.1, 50);
-
+	//glOrtho(-50.0, 50.0, -50.0, 50.0, 0.1, 50);
+	glFrustum(-50.0, 50.0, -50.0, 50.0, 0.1, 50);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glTranslated(0, 0, -20);
@@ -42,13 +42,14 @@ void display(){
 	glTranslated(e, 0, 0);
 	glRotated(x, 1, 0, 0);
 	
-	glBegin(GL_LINE_LOOP);
+	/*glBegin(GL_LINE_LOOP);
 		glVertex3d(0, 0, -5);
 		glVertex3d(0, 0, 5);
 		glVertex3d(5, 0, 5);
 		glVertex3d(5, 0, -5);
 	glEnd();
-	glPopMatrix();
+	glPopMatrix();*/
+	glutWireTeapot(10.0f);
 
 	glFlush();
 }
@@ -59,6 +60,7 @@ void TECLADO(unsigned char tecla, int x1, int y1){
 		case 'a':
 			x+=10;
 			break;
+		
 		case 'q':
 			exit(1);
 			break;
